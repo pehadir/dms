@@ -209,5 +209,6 @@ class EmployeesController extends Controller
     public function get_attechment(Request $request){
         $data['file'] = Attechment::where('employee_id',$request->employee_id)->get();
         return response()->json($data);
+        // ddd
     }
 }
