@@ -17,9 +17,12 @@ use App\Http\Controllers\BranchController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/login', [AuthenticationController::class, 'loginView'])
-        ->name('login.view')
-        ->middleware('CheckUserIfLogin');
+Route::get('/', function(){
+    return view('welcome');
+})
+// Route::get('/login', [AuthenticationController::class, 'loginView'])
+        // ->name('login.view')
+        // ->middleware('CheckUserIfLogin');
     Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
     Route::group(['middleware' => 'auth'], function () {
