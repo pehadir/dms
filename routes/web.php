@@ -20,9 +20,9 @@ use App\Http\Controllers\BranchController;
 Route::get('/', function(){
     return view('welcome');
 });
-// Route::get('/login', [AuthenticationController::class, 'loginView'])
-        // ->name('login.view')
-        // ->middleware('CheckUserIfLogin');
+Route::get('/login', [AuthenticationController::class, 'loginView'])
+        ->name('login.view')
+        ->middleware('CheckUserIfLogin');
     Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
     Route::group(['middleware' => 'auth'], function () {
