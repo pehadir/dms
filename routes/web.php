@@ -18,8 +18,8 @@ use App\Http\Controllers\BranchController;
 |
 */
 Route::get('/login', [AuthenticationController::class, 'loginView'])
-        ->name('login.view');
-        // ->middleware('checkUserIfLogin');
+        ->name('login.view')
+        ->middleware('CheckUserIfLogin');
     Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
     Route::group(['middleware' => 'auth'], function () {
