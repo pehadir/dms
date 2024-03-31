@@ -48,7 +48,7 @@ class EmployeesController extends Controller
                 ->make(true);
     }
     public function create(){
-        $data['title']      = 'create-DATA ARCHIVE';
+        $data['title']      = 'DATA ARCHIVE';
         $data['page']       = 'DATA ARCHIVE';
         $data['subpage']    = 'Create ARCHIVE';
         $branch = Branch::where('id',Auth::user()->branch_id)->first();
@@ -100,7 +100,7 @@ class EmployeesController extends Controller
         
     }
     public function edit(Request $request){
-        $data['title']      = 'edit-DATA ARCHIVE';
+        $data['title']      = 'DATA ARCHIVE';
         $data['page']       = 'DATA ARCHIVE';
         $data['subpage']    = 'Edit DATA ARCHIVE';
         $data['emp']        = Employee::where('id',$request->id)

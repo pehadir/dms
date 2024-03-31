@@ -16,7 +16,7 @@
                             
                             <div class="form-group col-md-6">
                                 <label for="dob" class="form-label">Date</label><span class="text-danger pl-1">*</span>
-                                <input class="form-control" name="dob" type="date" id="dob" readonly>
+                                <input class="form-control" name="dob" type="date" id="dob" value="{{date('Y-m-d')}}" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="gender" class="form-label">Gender</label><span class="text-danger pl-1">*</span>
