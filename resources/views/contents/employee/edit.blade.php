@@ -163,7 +163,7 @@
                 </div>
             </div>
             <div class="col-md-12 d-flex justify-content-end">
-                <a href="{{route('employee')}}" class="btn btn-secondary me-1" type="submit" id="btn-simpan">Back</a>
+                <a href="{{route('data-archive')}}" class="btn btn-secondary me-1" type="submit" id="btn-simpan">Back</a>
                 <button class="btn btn-primary" type="submit" id="btn-simpan">Update</button>
             </div>
         </div>
