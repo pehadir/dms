@@ -29,9 +29,7 @@
 @include('contents.user.modal.edit')
 
 <!-- jQuery -->
-
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>

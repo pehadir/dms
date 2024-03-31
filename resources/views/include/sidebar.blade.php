@@ -10,7 +10,7 @@
                         <a href="{{route('dashboard')}}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="{{route('employee')}}"><i class="la la-file"></i> <span> Data Archive</span></a>
+                        <a href="{{route('data-archive')}}"><i class="la la-file"></i> <span> Data Archive</span></a>
                     </li>
                     
                     <li class="submenu">

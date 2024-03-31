@@ -43,34 +43,10 @@
         </div>
 
 
-@push('addon-style')
-    <!-- Datatable CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
-
-    <!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/select2.min.css')}}">
-
-    <!-- Datetimepicker CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/plugins/sweetalert2/sweetalert2.min.css')}}">
-@endpush
-
-@push('addon-script')
-    <!-- Slimscroll JS -->
-    <script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
-
-    <!-- Select2 JS -->
-    <script src="{{asset('assets/js/select2.min.js')}}"></script>
-
-    <!-- Datetimepicker JS -->
-    <script src="{{asset('assets/js/moment.min.js')}}"></script>
-    <script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
-
-    <!-- Datatable JS -->
-    <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-
+        <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 
     <script>
          $.ajaxSetup({

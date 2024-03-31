@@ -44,7 +44,7 @@ Route::post('/logout', [AuthenticationController::class, 'logout'])
         Route::post('delete-user',[UserController::class,'destroy'])->name('delete-user');
         
         // employee 
-        Route::get('employee',[EmployeesController::class,'index'])->name('employee');
+        Route::get('employee',[EmployeesController::class,'index'])->name('data-archive');
         Route::post('get-employee',[EmployeesController::class,'get_data'])->name('get-employee');
         Route::get('create-employee',[EmployeesController::class,'create'])->name('create-employee');
         Route::post('save-employee',[EmployeesController::class,'store'])->name('save-employee');
