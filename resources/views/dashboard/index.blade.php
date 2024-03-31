@@ -16,7 +16,7 @@
                         <label class="focus-label">BRANCH</label>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3 mb-4">
                     <button class="btn btn-primary">Search</button>
                 </div>
             </div>

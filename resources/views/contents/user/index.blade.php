@@ -103,9 +103,24 @@
                 dataType : 'json',
                 success : function(respon){
                     $('#edit_user').modal('show')
-                    $('#id').val(respon.id)
-                    $('#name').val(respon.name)
-                    $('#email').val(respon.email)
+                    $('#id').val(respon.data.id)
+                    $('#name').val(respon.data.name)
+                    $('#email').val(respon.data.email)
+                    $('#company_id_admin_edit').html(`<option value="`+respon.data.company_id+`">`+respon.data.company_name+`</option>`)
+                    var level = '';
+                    if (respon.data.type =='admin'){
+                        level = `<option value="admin" selected>Admin</option>
+                                 <option value="user">User</option>`;
+                    }else{
+                        level = `<option value="admin">Admin</option>
+                                 <option value="user" selected>User</option>`;
+                    }
+                    $('#level_edit').html(level)
+                    var comp = '<option value="">--select--</option>';
+                    $.each(respon.company, function(key,val){
+                        comp += `<option value="`+val.id+`">`+val.name+`</option>`;
+                    })
+                    $('#company_id_company_edit').html(comp)
                 }
             })
         })

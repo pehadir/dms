@@ -14,15 +14,15 @@
                     </li>
                     
                     <li class="submenu">
-                        {{-- <a href="#" class="noti-dot"><i class="la la-users"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="{{route('employee')}}">Data Arcive</a></li>
-                            <li><a href="{{route('plan_menpower')}}">Plan Manpower</a></li>
-                        </ul> --}}
                         <a href="#" class="noti-dot"><i class="la la-gear"></i> <span> Setting</span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="{{route('branches.index')}}">Branch</a></li>
+                            @if(auth()->user()->type == 'admin' || auth()->user()->type == 'company')
                             <li><a href="{{route('user')}}">User</a></li>
+                            @endif
+                            @if(auth()->user()->type == 'company')
+                            <li><a href="{{route('setup-company')}}">Company</a></li>
+                            @endif
                         </ul>
                     </li>
                     

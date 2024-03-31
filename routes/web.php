@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +60,13 @@ Route::post('/login', [AuthenticationController::class, 'login'])
     Route::get('change_password',[UserController::class,'change_pass'])->name('change_password');
     Route::post('change-password-new',[UserController::class,'change_password_new'])->name('change-password-new');
     Route::post('change_store',[UserController::class,'change_store'])->name('change_store');
-    
+     // ** setup company **//
+     Route::get('setup-company',[CompanyController::class,'index'])->name('setup-company');
+     Route::post('get-data',[CompanyController::class,'get_data'])->name('get-data');
+     Route::post('store-company',[CompanyController::class,'store'])->name('get-company');
+     Route::post('edit-company',[CompanyController::class,'edit'])->name('edit-company');
+     Route::post('update-company',[CompanyController::class,'update'])->name('update-company');
+     Route::post('destroy-company',[CompanyController::class,'destroy'])->name('destroy-company');
 
 });
 Route::fallback(function () {

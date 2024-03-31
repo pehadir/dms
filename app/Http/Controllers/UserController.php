@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Company;
 use App\models\User;
 use DataTables;
 
@@ -41,10 +42,11 @@ class UserController extends Controller
             return response()->json($res);
         }
         $data = [
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'branch_id'=> Auth::user()->branch_id,
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'password'      => Hash::make($request->password),
+            'branch_id'     => Auth::user()->branch_id,
+            'compani_id'    => $request->company_id
         ];
         $insert = User::create($data);
         if ($insert){
@@ -63,7 +65,10 @@ class UserController extends Controller
         
     }
     public function edit(Request $request){
-        $data = User::find($request->id);
+        $data['company'] = Company::all();
+        $data['data'] = User::select('users.*','companies.id as company_id','companies.name as company_name')
+                            ->leftJoin('companies','companies.id','users.company_id')
+                            ->where('users.id',$request->id)->first();
         return response()->json($data);
     }
     public function update(Request $request){
@@ -78,8 +83,6 @@ class UserController extends Controller
         $data = [
             'name'      => $request->name,
             'email'     => $request->email,
-            // 'password' => Hash::make($password),
-            // 'branch_id'=> Auth::user()->branch_id,
         ];
         $insert = User::where('id',$request->id)->update($data);
         if ($insert){

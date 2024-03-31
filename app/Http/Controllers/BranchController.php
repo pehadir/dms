@@ -26,6 +26,8 @@ class BranchController extends Controller
         return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
+                    $btn ='';
+                    if(auth()->user()->type == 'admin' && auth()->user()->type == 'company'){
                     $btn = '
                             <div class="dropdown dropdown-action">
                                 <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -34,7 +36,7 @@ class BranchController extends Controller
                                     <a data-id="'.$row->id.'" class="dropdown-item delete-branch" href="#" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                 </div>
                             </div>';
-                               
+                    }
                             return $btn;
                     })
                 ->rawColumns(['action'])

@@ -15,7 +15,7 @@
                 </button>
             </div>
         @endif
-        <div class="row mb-2">
+        <div class="row mb-4">
             <div class="col-auto float-end ms-auto">
                 <a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_branch"><i class="fa fa-plus"></i> New Branch</a>
             </div>
@@ -46,34 +46,7 @@
     <script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 <script>
-    // $(document).ready(function () {
-    //     /* When click show user */
-
-
-    //         $('body').on('click', '#edit-branch', function () {
-    //             const editUrl = $(this).data('url');
-    //             $('#edit-name-branch').val('')
-
-
-    //             $.get(editUrl, (data) => {
-    //                 $('#edit-name-branch').val(data.name)
-    //                 $('#id').val(data.id)
-    //                 $('#latitude').val(data.latitude)
-    //                 $('#longitude').val(data.longitude)
-    //                 $('#alias').val(data.alias)
-    //                 $('#company_id').val(data.company_id)
-
-    //                 const urlNow = '{{ Request::url() }}'
-    //                 $('#edit-form-branch').attr('action', urlNow + '/' + data.id);
-    //             })
-    //         });
-
-    //     $('body').on('click', '#delete-branch', function(){
-    //         const deleteURL = $(this).data('url');
-    //         $('#form-delete-branch').attr('action', deleteURL);
-    //     })
-    // });
-    // <script>
+   
     $(document).ready(function(){
         $.ajaxSetup({
             headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}

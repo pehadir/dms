@@ -24,14 +24,6 @@ class EmployeesController extends Controller
     }
     public function get_data(Request $request){
         $data = Employee::where('branch_id',$request->branch)->get();
-        // $data = DB::SELECT("SELECT a.id,
-        // a.name,a.identity_card,a.email,a.phone,
-        // array_agg(b.url_file) as files
-        //  FROM employees a 
-        // left join attechments b 
-        // ON b.employee_id = a.id
-        // where a.branch_id = $request->branch 
-        // GROUP BY b.employee_id,a.id,a.name,a.identity_card,a.email,a.phone");
         $data = DB::table('v_data_archive')
                     ->where('branch_id',$request->branch);
                     if($request->startdate !=null && $request->startdate !=null){
@@ -45,7 +37,9 @@ class EmployeesController extends Controller
                             <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                             <div class="dropdown-menu dropdown-menu-right text-right" style="align:right !important;">';
                             $btn .= '<a class="dropdown-item edit-employee" href="edit-employee/'.$row->id.'" ><i class="fa fa-pencil m-r-5"></i> Edit</a>';
-                            $btn .= '<a data-id='.$row->id.' class="dropdown-item delete-employee" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>';
+                            if(auth()->user()->type == 'admin' && auth()->user()->type == 'company'){
+                                $btn .= '<a data-id='.$row->id.' class="dropdown-item delete-employee" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>';
+                            }
                             $btn .= '</div></div>';
                         return $btn;
                     })
