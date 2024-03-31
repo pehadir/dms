@@ -50,7 +50,7 @@
 							<div class="d-flex justify-content-center mt-3 mb-3">
 								<img src="{{asset('assets/img/images.png')}}" width="150" alt="pehadir">
 							</div>
-							<h4 class="text-center mb-3">DOCUMENT MANAGEMENT SYSTEM</h4>
+							<h4 class="text-center mb-4">DOCUMENT MANAGEMENT SYSTEM</h4>
                             @if (Session::get('failed'))
                                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                                     <strong>{{Session::get('failed')}}</strong>
