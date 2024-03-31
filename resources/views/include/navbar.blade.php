@@ -3,10 +3,10 @@
 			
     <!-- Logo -->
     <div class="header-left">
-         <a href="/" class="logo">
+         <a href="{{route('dashboard')}}" class="logo">
             <img src="{{asset('assets/img/images.png')}}" width="110" height="50" alt="">
         </a>
-        <a href="/" class="logo2">
+        <a href="{{route('dashboard')}}" class="logo2">
             <img src="{{asset('assets/img/images.png')}}" width="110" height="50" alt="">
         </a>
     </div>

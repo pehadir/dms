@@ -15,7 +15,7 @@ class BranchController extends Controller
     {
         $data['title']      = 'DMS-BRANCH';
         $data['page']       = 'BRANCH';
-        $data['subpage']    = '';
+        $data['subpage']    = 'branch';
         $br = Branch::where('id',Auth::user()->branch_id)->first();
         $data['branches'] = Branch::where('company_id',$br->company_id)->get();
         return view('contents.branch.index',$data);
