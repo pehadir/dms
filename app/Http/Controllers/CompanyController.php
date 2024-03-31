@@ -52,8 +52,8 @@ class CompanyController extends Controller
         return $response;
     }
     public function store(Request $request){
-        try {
-        DB::beginTransaction();
+        // try {
+        // DB::beginTransaction();
             $data =[
                 'name'      => $request->company_name,
                 'addrees'   => $request->address,
@@ -67,21 +67,21 @@ class CompanyController extends Controller
                 'created_by' => Auth::user()->id,
                 'company_id' => $save,
             ];
-            Branch::create($branch);
-            DB::commit();
-             $res = [
-                'status' => 'success',
-                'msg'    => 'Data success saved !',
-            ];
-            return response()->json($res);
-        }catch (Exception $e) {
-                DB::rollBack();
-                 $res = [
-                'status' => 'error',
-                'msg'    => 'Something went wrong! try again.',
-            ];
-            return response()->json($res);
-        }
+            // Branch::insert($branch);
+        //     DB::commit();
+        //      $res = [
+        //         'status' => 'success',
+        //         'msg'    => 'Data success saved !',
+        //     ];
+        //     return response()->json($res);
+        // }catch (Exception $e) {
+        //         DB::rollBack();
+        //          $res = [
+        //         'status' => 'error',
+        //         'msg'    => 'Something went wrong! try again.',
+        //     ];
+        //     return response()->json($res);
+        // }
         
     }
     public function edit(Request $request){
