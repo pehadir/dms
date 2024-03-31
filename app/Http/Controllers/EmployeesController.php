@@ -57,16 +57,10 @@ class EmployeesController extends Controller
     }
     public function store(Request $request){
         $saveEmp = [
-            "name"                  =>$request->name,
+            "name"                  =>ucwords($request->name),
             "dob"                   =>$request->dob,
             "gender"                =>$request->gender,
             "identity_card"         =>$request->identity_card,
-            // "religion"              =>$request->religion,
-            // "family_card"           =>$request->family_card,
-            // "marital_status"        =>$request->marital_status,
-            // "phone"                 =>$request->phone,
-            // "email"                 =>$request->email,
-            // "address"               =>$request->address,
             "status"                =>$request->status,
             "branch_id"             =>$request->branch_id,
             "created_by"            => Auth::user()->id,
@@ -81,7 +75,7 @@ class EmployeesController extends Controller
             if ($request->attech[$i]) {
                     $fileName = $i.time() . $request->attech[$i]->getClientOriginalName();
                     $store = $request->attech[$i]->storeAs('public', $fileName);
-                    $pathFile_application = 'storage/' . $fileName ?? null;
+                    $pathFile_application = 'public/storage/' . $fileName ?? null;
                     $i++;
                     $arsip = [
                         'employee_id' => $id,
@@ -118,28 +112,12 @@ class EmployeesController extends Controller
     }
     public function update(Request $request){
         $uptemployee = [
-            "name"                  => ucwords($request->name),
+            "name"                  =>ucwords($request->name),
             "dob"                   =>$request->dob,
             "gender"                =>$request->gender,
-            "religion"              =>$request->religion,
             "identity_card"         =>$request->identity_card,
-            "family_card"           =>$request->family_card,
-            "marital_status"        =>$request->marital_status,
-            "phone"                 =>$request->phone,
-            "email"                 =>$request->email,
-            "address"               =>$request->address,
-            "branch_id"             =>$request->branch_id,
             "status"                =>$request->status,
-            // "npwp_number"           =>$request->npwp_number,
-            // "no_employee"           =>$request->identity_card,
-            // "employee_type"         =>$request->employee_type,
-            // "work_type"             =>$request->work_type,
-            // "account_holder_name"   =>$request->account_name,
-            // "bank_name"             =>$request->bank_name,
-            // "account_number"        =>$request->account_number,
-            // "company_doj"           =>$request->company_doj,
             "created_by"            => Auth::user()->id,
-            "created_at"            => date('Y-m-d H:m:s'),
             "updated_at"            => date('Y-m-d H:m:s'),
         ];
         $save = Employee::where('id',$request->id)->update($uptemployee);
@@ -152,7 +130,7 @@ class EmployeesController extends Controller
             if ($request->attech[$i]) {
                     $fileName = $i.time() . $request->attech[$i]->getClientOriginalName();
                     $store = $request->attech[$i]->storeAs('public', $fileName);
-                    $pathFile_application = 'storage/' . $fileName ?? null;
+                    $pathFile_application = 'public/storage/' . $fileName ?? null;
                     $i++;
                     $arsip = [
                         'employee_id' => $request->id,
