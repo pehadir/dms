@@ -61,8 +61,8 @@
                         name: 'name'
                     },
                      {
-                        data: 'address',
-                        name: 'address'
+                        data: 'addrees',
+                        name: 'addrees'
                     }, 
                     {
                         data: 'logo',
@@ -128,7 +128,7 @@
                        
                         $('#id_edit').val(respon.id);
                         $('#companyName_edit').val(respon.name);
-                        $('#companyAddress_edit').val(respon.address);
+                        $('#companyAddress_edit').val(respon.addrees);
                         var status ='';
                         if(respon.is_active =='1'){
                             status = `
