@@ -37,7 +37,7 @@ class EmployeesController extends Controller
                             <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                             <div class="dropdown-menu dropdown-menu-right text-right" style="align:right !important;">';
                             $btn .= '<a class="dropdown-item edit-employee" href="edit-employee/'.$row->id.'" ><i class="fa fa-pencil m-r-5"></i> Edit</a>';
-                            if(auth()->user()->type == 'admin' && auth()->user()->type == 'company'){
+                            if(auth()->user()->type == 'admin' || auth()->user()->type == 'company'){
                                 $btn .= '<a data-id='.$row->id.' class="dropdown-item delete-employee" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>';
                             }
                             $btn .= '</div></div>';

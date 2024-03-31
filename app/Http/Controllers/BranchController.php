@@ -27,7 +27,7 @@ class BranchController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn ='';
-                    if(auth()->user()->type == 'admin' && auth()->user()->type == 'company'){
+                    if(auth()->user()->type == 'admin' || auth()->user()->type == 'company'){
                     $btn = '
                             <div class="dropdown dropdown-action">
                                 <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
