@@ -24,15 +24,20 @@ class EmployeesController extends Controller
     }
     public function get_data(Request $request){
         $data = Employee::where('branch_id',$request->branch)->get();
-        $data = DB::SELECT("SELECT a.id,
-        a.name,a.identity_card,a.email,a.phone,
-        array_agg(b.url_file) as files
-         FROM employees a 
-        left join attechments b 
-        ON b.employee_id = a.id
-        where a.branch_id = $request->branch
-        GROUP BY b.employee_id,a.id,a.name,a.identity_card,a.email,a.phone");
-        return DataTables::of($data)
+        // $data = DB::SELECT("SELECT a.id,
+        // a.name,a.identity_card,a.email,a.phone,
+        // array_agg(b.url_file) as files
+        //  FROM employees a 
+        // left join attechments b 
+        // ON b.employee_id = a.id
+        // where a.branch_id = $request->branch 
+        // GROUP BY b.employee_id,a.id,a.name,a.identity_card,a.email,a.phone");
+        $data = DB::table('v_data_archive')
+                    ->where('branch_id',$request->branch);
+                    if($request->startdate !=null && $request->startdate !=null){
+                        $data->whereBetween('created_at',[$request->startdate,$request->enddate]);
+                    }
+        return DataTables::of($data->get())
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                         $btn ='';
@@ -102,7 +107,7 @@ class EmployeesController extends Controller
     public function edit(Request $request){
         $data['title']      = 'DATA ARCHIVE';
         $data['page']       = 'DATA ARCHIVE';
-        $data['subpage']    = 'Edit DATA ARCHIVE';
+        $data['subpage']    = '';
         $data['emp']        = Employee::where('id',$request->id)
                                 ->with('branch')->first();
         $data['attech']     = Attechment::where('employee_id',$request->id)->get();

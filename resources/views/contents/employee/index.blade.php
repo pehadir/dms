@@ -2,7 +2,7 @@
 @section('content')
     <!-- Search Filter -->
     <div class="row filter-row">
-        <div class="col-sm-6 col-md-3"> 
+        <div class="col-md-3"> 
             <div class="form-group form-focus select-focus">
                 <select class="select floating" id="branch_id"> 
                     @foreach ($branch as $branches)
@@ -10,15 +10,27 @@
                     @endforeach
                    
                 </select>
-                <label class="focus-label">BRANCH</label>
+                <label class="focus-label">Branch</label>
             </div>
         </div>
-        <div class="col-sm-6 col-md-6">
+        <div class="col-md-3"> 
+            <div class="form-group form-focus select-focus">
+                <input type="date" class="floating form-control" id="startdate">
+                <label class="focus-label">Start Date</label>
+            </div>
+        </div>
+        <div class="col-md-3"> 
+            <div class="form-group form-focus select-focus">
+                <input type="date" class="floating form-control" id="enddate">
+                <label class="focus-label">End Date</label>
+            </div>
+        </div>
+        <div class="col-md-3">
             <div class="row">
-                <div class="col-md-2 me-1">
+                <div class="col-md-4">
                     <a href="#" class="btn btn-success" id="search"> Search </a>  
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-8">
                     <a href="{{ route('create-employee')}}" class="btn btn-primary"><span class="fa fa-plus me-1"></span>Create</a>
                 </div>
             </div>  
@@ -71,8 +83,8 @@
                 headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
             });
             var branch = $('#branch_id').val();
-            loadData(branch);
-            function loadData(branch){
+            loadData(branch,startdate=null,enddate=null);
+            function loadData(branch,startdate,enddate){
                 $('#tblEmployee').DataTable({
                     processing: true,
                     serverSide: true,
@@ -80,7 +92,11 @@
                     ajax : {
                             "url" : 'get-employee',
                             "type" : 'POST',
-                            "data" : {branch : branch},
+                            "data" : {
+                                branch : branch,
+                                startdate :startdate,
+                                enddate :enddate,
+                            },
                         },
                     columns: [
                         { data: 'no', name:'id', render: function (data, type, row, meta) {
@@ -126,13 +142,17 @@
             }
             $('#search').on('click',function(){
                 var branch = $('#branch_id').val();
-                loadData(branch);
+                var startdate = $('#startdate').val();
+                var enddate = $('#enddate').val();
+                loadData(branch,startdate,enddate);
             })
            
             $(document).on('click','.delete-employee',function(e){
                e.preventDefault();
                 var id = $(this).attr('data-id')
                 var branch = $('#branch_id').val();
+                var startdate = $('#startdate').val();
+                var enddate = $('#enddate').val();
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -157,7 +177,7 @@
                                     icon : respon.status,
                                     text : respon.msg,
                                 })
-                                loadData(branch);
+                                loadData(branch,startdate,enddate);
                             },
                             error : function (){
                                 alert('There is an error !, please try again')
