@@ -46,10 +46,10 @@
         <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
             <div class="card dash-widget">
                 <div class="card-body">
-                    <span class="dash-widget-icon text-danger"><i class="fa fa-close"></i></span>
+                    <span class="dash-widget-icon text-success"><i class="fa fa-cubes"></i></span>
                     <div class="dash-widget-info">
                         <h3>{{$archiveTotal}}</h3>
-                        <span class="text-danger">TOTAL ARCHIVE</span>
+                        <span class="text-success">TOTAL ARCHIVE</span>
                     </div>
                 </div>
             </div>
