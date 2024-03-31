@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card emp_details">
-                    <div class="card-header p-3"><h4 class="mb-0">Personal Detail</h4></div>
+                    <div class="card-header p-3"><h4 class="mb-0">Data</h4></div>
                     <div class="card-body employee-detail-edit-body fulls-card">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -29,8 +29,8 @@
                                 <input class="form-control" name="name" type="text" id="name" value="{{$emp->name}}" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="dob" class="form-label">Date of Birth</label><span class="text-danger pl-1">*</span>
-                                <input class="form-control" name="dob" type="date" id="dob" value="{{$emp->dob}}" required>
+                                <label for="dob" class="form-label">Date</label><span class="text-danger pl-1">*</span>
+                                <input class="form-control" name="dob" type="date" id="dob" value="{{ date('Y-m-d', strtotime($emp->created_at)) }}" readonly>
                             </div>
                             
                             <div class="form-group col-md-6">
@@ -38,8 +38,8 @@
                                 <div class="d-flex radio-check mt-2">
                                     <select class="form-control form-select" name="gender" required>
                                         <option value="">-- Pilih --</option>
-                                        <option value="MALE" {{($emp->gender=='MALE') ? 'selected' : ''}}>MALE</option>
-                                        <option value="FEMALE" {{($emp->gender=='FEMALE') ? 'selected' : ''}}>FEMALE</option>
+                                        <option value="MALE" {{($emp->gender=='MALE') ? 'selected' : ''}}>Male</option>
+                                        <option value="FEMALE" {{($emp->gender=='FEMALE') ? 'selected' : ''}}>Female</option>
                                     </select>
 
                                 </div>
@@ -80,58 +80,7 @@
                     <div class="card-header p-3"><h4 class="mb-0">Upload Attachment</h4></div>
                     <div class="card-body employee-detail-edit-body fulls-card">
                         <div class="row">
-                            {{-- <div class="form-group col-md-6">
-                                <label for="employee_id" class="form-label">Employee ID</label>
-                                <input class="form-control" value="{{$emp->no_employee}}" name="no_employee" type="text" id="employee_id">
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label class="form-label">Employee Type</label>
-                                <select class="form-control form-select"  name="employee_type" id="employee_type">
-                                    <option value="" disabled>Select Type</option>
-                                    <option value="permanent" {{($emp->employee_type=='permanent') ? 'selected' : ''}}>Permanent</option>
-                                    <option value="probation" {{($emp->employee_type=='probation') ? 'selected' : ''}}>Probation</option>
-                                    <option value="contract" {{($emp->employee_type=='contract') ? 'selected' : ''}}>Contract</option>
-                                    <option value="outsourcing" {{($emp->employee_type=='outsourcing') ? 'selected' : ''}}>Outsourcing</option>
-                                    <option value="hl" {{($emp->employee_type=='hl') ? 'selected' : ''}}>Daily Worker</option>
-                                    <option value="magang" {{($emp->employee_type=='magang') ? 'selected' : ''}}>Magang</option>
-                                    <option value="freelancers" {{($emp->employee_type=='freelancers') ? 'selected' : ''}}>Freelancers</option>
-                                </select>
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label for="leave_type" class="form-label">Work Type</label>
-                                <select class="form-control form-select"  id="work_type" name="work_type">
-                                    <option value="">Select Type</option>
-                                    <option value="61" {{($emp->work_type=='61') ? 'selected' : ''}}>6-1 (6 Days Work) </option>
-                                    <option value="52" {{($emp->work_type=='52') ? 'selected' : ''}}>5-2 (5 Days Work) </option>
-                                    <option value="42" {{($emp->work_type=='42') ? 'selected' : ''}}>4-2 (6 Days Work) </option>
-                                    <option value="30" {{($emp->work_type=='30') ? 'selected' : ''}}>3-0 (Full Days Work) </option>
-                                </select>
-                            </div> --}}
-                            
                             <hr >
-                            
-                            {{-- <div class="form-group col-md-6">
-                                <label for="company_doj" class="form-label">Join Date</label>
-                                <input class="form-control" value="{{$emp->company_doj}}" name="company_doj" type="date" id="company_doj">
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label class="form-label">Department </label>
-                                <select class="form-control select" name="department" id="departs">
-                                    <option value="" selected>Select Department</option>
-                                    @foreach ($department as $depart)
-                                        <option value="{{$depart->id }}">{{$depart->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label class="form-label">Position </label>
-                                <select class="form-control select" name="position" id="positId">
-                                    <option value="" selected>Select Position</option>
-                                    @foreach ($position as $post)
-                                        <option value="{{$post->id }}">{{$post->position_name}}</option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="container mb-4">

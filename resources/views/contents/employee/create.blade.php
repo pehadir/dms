@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card emp_details">
-                    <div class="card-header p-3"><h4 class="mb-0">Data Personal</h4></div>
+                    <div class="card-header p-3"><h4 class="mb-0">Data</h4></div>
                     <div class="card-body employee-detail-edit-body fulls-card">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -15,16 +15,16 @@
                             </div>
                             
                             <div class="form-group col-md-6">
-                                <label for="dob" class="form-label">Date of Birth</label><span class="text-danger pl-1">*</span>
-                                <input class="form-control" name="dob" type="date" id="dob" required>
+                                <label for="dob" class="form-label">Date</label><span class="text-danger pl-1">*</span>
+                                <input class="form-control" name="dob" type="date" id="dob" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="gender" class="form-label">Gender</label><span class="text-danger pl-1">*</span>
                                 <div class="d-flex radio-check mt-2">
                                     <select class="form-control form-select" name="gender" required>
                                         <option value="">-- Pilih --</option>
-                                        <option value="MALE">MALE</option>
-                                        <option value="FEMALE">FEMALE</option>
+                                        <option value="MALE">Male</option>
+                                        <option value="FEMALE">Female</option>
                                     </select>
 
                                 </div>

@@ -17,7 +17,7 @@ class EmployeesController extends Controller
     public function index(){
         $data['title']      = 'DMS-ARCHIVE';
         $data['page']       = 'DATA ARCHIVE';
-        $data['subpage']    = 'Archive';
+        $data['subpage']    = '';
         $branch = Branch::where('id',Auth::user()->branch_id)->first();
         $data['branch'] = Branch::where('company_id',$branch->company_id)->get();
         return view('contents.employee.index',$data);
@@ -58,7 +58,7 @@ class EmployeesController extends Controller
     public function store(Request $request){
         $saveEmp = [
             "name"                  =>ucwords($request->name),
-            "dob"                   =>$request->dob,
+            // "dob"                   =>$request->dob,
             "gender"                =>$request->gender,
             "identity_card"         =>$request->identity_card,
             "status"                =>$request->status,
@@ -113,7 +113,7 @@ class EmployeesController extends Controller
     public function update(Request $request){
         $uptemployee = [
             "name"                  =>ucwords($request->name),
-            "dob"                   =>$request->dob,
+            // "dob"                   =>$request->dob,
             "gender"                =>$request->gender,
             "identity_card"         =>$request->identity_card,
             "status"                =>$request->status,

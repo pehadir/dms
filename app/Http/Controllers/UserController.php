@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index(){
         $data['title']      = 'User Management';
         $data['page']       = 'USER MANAGEMENT';
-        $data['subpage']    = 'user';
+        $data['subpage']    = '';
         return view('contents.user.index',$data);
     }
     public function get_user(){
