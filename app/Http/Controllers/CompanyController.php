@@ -56,7 +56,7 @@ class CompanyController extends Controller
         DB::beginTransaction();
             $data =[
                 'name'      => $request->company_name,
-                'address'   => $request->address,
+                'addrees'   => $request->address,
                 'is_active' => '1',
             ];
             
@@ -98,7 +98,7 @@ class CompanyController extends Controller
         }
         $data =[
             'name'      => $request->company_name,
-            'address'   => $request->address,
+            'addrees'   => $request->address,
             'logo'      => $pathFile,
             'is_active' => $request->status,
         ];
