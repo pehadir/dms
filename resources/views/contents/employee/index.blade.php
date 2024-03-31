@@ -132,6 +132,7 @@
             $(document).on('click','.delete-employee',function(e){
                e.preventDefault();
                 var id = $(this).attr('data-id')
+                var branch = $('#branch_id').val();
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -156,7 +157,7 @@
                                     icon : respon.status,
                                     text : respon.msg,
                                 })
-                                table.ajax.reload();
+                                loadData(branch);
                             },
                             error : function (){
                                 alert('There is an error !, please try again')

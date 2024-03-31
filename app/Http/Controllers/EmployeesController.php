@@ -93,9 +93,9 @@ class EmployeesController extends Controller
         Attechment::insert($document);
 
         if ($save){
-            return redirect()->route('employee')->with('success', 'Create Data successfully.');
+            return redirect()->route('data-archive')->with('success', 'Create Data successfully.');
         }else{
-            return redirect()->route('employee')->with('error', 'Something went wrong!.');
+            return redirect()->route('data-archive')->with('error', 'Something went wrong!.');
         }
         
     }
