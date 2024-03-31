@@ -15,11 +15,13 @@
                 </button>
             </div>
         @endif
+        @if(auth()->user()->type == 'admin' || auth()->user()->type == 'company')
         <div class="row mb-4">
             <div class="col-auto float-end ms-auto">
                 <a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_branch"><i class="fa fa-plus"></i> New Branch</a>
             </div>
         </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
