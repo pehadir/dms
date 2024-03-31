@@ -10,17 +10,17 @@ use App\Models\Branch;
 class DashboardController extends Controller
 {
     public function index(){
-        dd('data'); 
-        $data['page']           = 'Dashboard';
-        $data['title']          = 'DMS';
-        $data['subpage']        = '';
-        $branch = Branch::where('id',Auth::user()->branch_id)->first();
-        $data['branch'] = Branch::where('company_id',$branch->company_id)->get();
-        $data['dataIn']         = Employee::whereRaw(DB::raw("to_char(created_at,'YYYY-MM') = to_char(now(),'YYYY-MM')"))->count();
-        $data['dataActive']     = Employee::where('status','active')->count();
-        $data['dataNonactive']  = Employee::where('status','nonactive')->count();
-        $data['dataTotal']      = Employee::count(); 
-        return view('dashboard.index',$data);
+        echo "test";
+        // $data['page']           = 'Dashboard';
+        // $data['title']          = 'DMS';
+        // $data['subpage']        = '';
+        // $branch = Branch::where('id',Auth::user()->branch_id)->first();
+        // $data['branch'] = Branch::where('company_id',$branch->company_id)->get();
+        // $data['dataIn']         = Employee::whereRaw(DB::raw("to_char(created_at,'YYYY-MM') = to_char(now(),'YYYY-MM')"))->count();
+        // $data['dataActive']     = Employee::where('status','active')->count();
+        // $data['dataNonactive']  = Employee::where('status','nonactive')->count();
+        // $data['dataTotal']      = Employee::count(); 
+        // return view('dashboard.index',$data);
     }
     public function search(Request $request){
         $data['page']           = 'Dashboard';
