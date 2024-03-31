@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card emp_details">
-                    <div class="card-header p-3"><h4 class="mb-0">Upload</h4></div>
+                    <div class="card-header p-3"><h4 class="mb-0">Upload Attachment</h4></div>
                     
                     <div class="container mb-4">
                         {{-- <h5>Add Attech</h5> --}}
