@@ -67,12 +67,13 @@
                 </div>
             </div>
             <div class="col-md-12 d-flex justify-content-end">
-                <a href="{{route('data-archive')}}" class="btn btn-secondary me-1" type="submit" id="btn-simpan">Back</a>
+                <a href="{{route('data-archive')}}" class="btn btn-secondary me-1">Back</a>
                 <button class="btn btn-primary" type="submit" id="btn-simpan">Save</button>
             </div>
         </div>
     </form>
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
     <script>
         $('#btn-simpan').on('submit',function(){
             $('#btn-simpan').attr('disabled',true)
@@ -91,7 +92,8 @@
                             </div>
                             <div class="form-group">
                                 <label>File</label>
-                                <input type="file" name="attech[]" class="form-control" required>
+                                <input type="file" name="attech[]" class="form-control type-file mb-3" required>
+                                <small class="text-small text-secondary">file allow : pdf,jpg,jpeg,png,webp and svg</small>
                             </div>
                         </div>
                         <div class="row `+classFile+`">
@@ -103,10 +105,31 @@
             $('#attech').append(html);
            
         })
+        function getFile(filename) {
+            return (/[.]/.exec(filename)) ? /[^.]+$/.exec(filename) : undefined;
+        }
+        $(document).on('change','.type-file',function(){
+            var type = $(this)[0].files[0];
+            var ext  = getFile(type.name)
+            console.log(ext[0])
+            if (ext[0] != 'pdf' & ext[0] != 'jpg' & ext[0] != 'jpeg' & ext[0] != 'png' & ext[0] != 'webp' & ext[0] != 'svg'){
+                $('#add_attech').attr('disabled',true)
+                $('#btn-simpan').attr('disabled',true)
+                swal.fire({
+                    icon : 'info',
+                    text : 'file extention invalid !'
+                })
+            }else{
+                $('#add_attech').attr('disabled',false)
+                $('#btn-simpan').attr('disabled',false)
+            }
+        })
         $(document).on('click','.remove',function(e){
             e.preventDefault();
             var classFile = $(this).attr('data-class');
             $('.'+classFile).remove();
+            $('#add_attech').attr('disabled',false)
+            $('#btn-simpan').attr('disabled',false)
         })
     </script>
 @endsection
