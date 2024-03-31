@@ -39,8 +39,10 @@ class DashboardController extends Controller
             return view('dashboard.index',$data);
         }
         $data['dataIn']         = Employee::whereRaw(DB::raw("to_char(created_at,'YYYY-MM') = to_char(now(),'YYYY-MM')"))->where('branch_id',$request->branch_id)->count();
-        $data['dataActive']     = Employee::where('status','active')->where('branch_id',$request->branch_id)->count();
-        $data['dataNonactive']  = Employee::where('status','nonactive')->where('branch_id',$request->branch_id)->count();
+        $data['archiveTotal']   = DB::table('attechments')
+                                        ->leftJoin('employees','employees.id','attechments.employee_id')
+                                        ->where('employees.branch_id',$request->branch_id)
+                                        ->count();
         $data['dataTotal']      = Employee::where('branch_id',$request->branch_id)->count(); 
         return view('dashboard.index',$data);
     }
