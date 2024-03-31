@@ -10,6 +10,7 @@ use App\Models\Branch;
 class DashboardController extends Controller
 {
     public function index(){
+        dd('data');
         $data['page']           = 'Dashboard';
         $data['title']          = 'DMS';
         $data['subpage']        = '';

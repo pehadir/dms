@@ -22,7 +22,7 @@ Route::get('/login', [AuthenticationController::class, 'loginView'])
         ->middleware('CheckUserIfLogin');
     Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
-    Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/',[DashboardController::class,'index'])->name('dashboard');
     Route::get('plan_menpower',[DashboardController::class,'index'])->name('plan_menpower');
     Route::post('search',[DashboardController::class,'search'])->name('search');
