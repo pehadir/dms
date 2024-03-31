@@ -9,7 +9,7 @@
                         <select class="select floating" id="branch_id" name="branch_id"> 
                             <option value="all">All</option>
                             @foreach ($branch as $branches)
-                                <option value="{{$branches->id}}">{{ $branches->alias}}</option> 
+                                <option value="{{$branches->id}}">{{ $branches->name}}</option> 
                             @endforeach
                         
                         </select>
