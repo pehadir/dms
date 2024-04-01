@@ -44,6 +44,7 @@ class UserController extends Controller
         $data = [
             'name'          => $request->name,
             'email'         => $request->email,
+            'type'          => $request->level,
             'password'      => Hash::make($request->password),
             'branch_id'     => Auth::user()->branch_id,
             'compani_id'    => $request->company_id
@@ -83,7 +84,7 @@ class UserController extends Controller
         $data = [
             'name'      => $request->name,
             'email'     => $request->email,
-            'level'     => $request->level,
+            'type'     => $request->level,
         ];
         $insert = User::where('id',$request->id)->update($data);
         if ($insert){
