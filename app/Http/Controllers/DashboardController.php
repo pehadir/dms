@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $data['bar'] = $chart->bar();
         return view('dashboard.index',$data);
     }
-    public function search(Request $request){
+    public function search(Gander $chart,Request $request){
         $data['page']           = 'Dashboard';
         $data['title']          = 'dashboard';
         $data['subpage']        = '';
