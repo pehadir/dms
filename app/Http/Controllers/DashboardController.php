@@ -22,16 +22,8 @@ class DashboardController extends Controller
                                     ->where('employees.branch_id',Auth::user()->branch_id)
                                     ->count();
         $data['dataTotal']      = Employee::count(); 
-        
         $data['pie'] = $chart->pie();
         $data['bar'] = $chart->bar();
-
-
-
-
-
-
-
         return view('dashboard.index',$data);
     }
     public function search(Request $request){
@@ -55,6 +47,8 @@ class DashboardController extends Controller
                                         ->where('employees.branch_id',$request->branch_id)
                                         ->count();
         $data['dataTotal']      = Employee::where('branch_id',$request->branch_id)->count(); 
+        $data['pie'] = $chart->pie();
+        $data['bar'] = $chart->bar();
         return view('dashboard.index',$data);
     }
 }
