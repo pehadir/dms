@@ -83,6 +83,7 @@ class UserController extends Controller
         $data = [
             'name'      => $request->name,
             'email'     => $request->email,
+            'level'     => $request->level,
         ];
         $insert = User::where('id',$request->id)->update($data);
         if ($insert){

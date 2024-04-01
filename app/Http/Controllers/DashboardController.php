@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Employee;
 use App\Models\Branch;
+use App\Charts\Gander;
 class DashboardController extends Controller
 {
-    public function index(){
+    public function index(Gander $chart){
         $data['page']           = 'Dashboard';
         $data['title']          = 'DMS';
         $data['subpage']        = '';
@@ -21,6 +22,16 @@ class DashboardController extends Controller
                                     ->where('employees.branch_id',Auth::user()->branch_id)
                                     ->count();
         $data['dataTotal']      = Employee::count(); 
+        
+        $data['pie'] = $chart->pie();
+        $data['bar'] = $chart->bar();
+
+
+
+
+
+
+
         return view('dashboard.index',$data);
     }
     public function search(Request $request){

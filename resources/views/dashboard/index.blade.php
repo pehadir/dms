@@ -1,5 +1,6 @@
 @extends('template.main')
 @section('content')
+
     <div class="row">
         <form action="{{route('search')}}" method="post">
             @csrf
@@ -54,7 +55,31 @@
                 </div>
             </div>
         </div>
-        
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class=" rounded shadow">
+                {!! $bar->container() !!}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class=" rounded shadow">
+                {!! $pie->container() !!}
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ $pie->cdn() }}"></script>
+    <script src="{{ $bar->cdn() }}"></script>
+    
+    {{ $pie->script() }}
+    {{ $bar->script() }}
+    <style>
+        #charts{
+          width: 30px !important;
+          height: 30px !important;
+          border: 1px solid #000;
+        }
+        </style>
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 @endsection()
